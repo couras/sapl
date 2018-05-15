@@ -2,6 +2,7 @@ from django.conf.urls import url
 
 from .apps import AppConfig
 from .views import (RedirecionaAtasList, RedirecionaComissao,
+                    RedirecionaComposicaoComissao,
                     RedirecionaHistoricoTramitacoesList,
                     RedirecionaMateriaLegislativaDetail,
                     RedirecionaMateriaLegislativaList,
@@ -15,7 +16,6 @@ from .views import (RedirecionaAtasList, RedirecionaComissao,
                     RedirecionaSAPLIndex, RedirecionaSessaoPlenaria)
 
 app_name = AppConfig.name
-
 urlpatterns = [
     url(r'^default_index_html$',
         RedirecionaSAPLIndex.as_view(),
@@ -26,6 +26,9 @@ urlpatterns = [
     url(r'^consultas/comissao/comissao_',
         RedirecionaComissao.as_view(),
         name='redireciona_comissao'),
+    url(r'^consultas/comissao/composicao/composicao_index_html',
+        RedirecionaComposicaoComissao.as_view(),
+        name='redireciona_composicaio_comissao'),
     url(r'^consultas/pauta_sessao/pauta_sessao_',
         RedirecionaPautaSessao.as_view(),
         name='redireciona_pauta_sessao_'),
